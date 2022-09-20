@@ -52,7 +52,8 @@ export default function Navbar() {
                 {linksJSX()}
 
                 {/* Burger menu button */}
-                <div className={styles.burger}
+                <div
+                    className={styles.burger}
                     onClick={() => toggleMobileNavHeight()}
                 >
                     <svg viewBox="0 0 100 80" width="20" height="20">

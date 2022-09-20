@@ -45,7 +45,6 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.main}>
-
                 <Link href='/'>
                     <a><b>Alfredo Medina</b></a>
                 </Link>

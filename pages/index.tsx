@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 					<Button
 						href='/contact'
 					>
-						Let's talk
+						Let&apos;s talk
 					</Button>
 				</div>
 

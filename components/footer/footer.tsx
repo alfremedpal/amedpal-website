@@ -7,7 +7,7 @@ const Footer = () => {
             <a
                 href="mailto:info@amedpal.com"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
             >
                 email
             </a>
@@ -15,7 +15,7 @@ const Footer = () => {
             <a
                 href="https://github.com/alfremedpal/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
             >
                 github
             </a>
@@ -23,7 +23,7 @@ const Footer = () => {
             <a
                 href="https://www.linkedin.com/in/alfredo-medina-874749121/"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
             >
                 linkedin
             </a>

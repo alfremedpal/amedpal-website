@@ -1,0 +1,90 @@
+@use "./variables" as v;
+@use "./styles/mixins" as m;
+
+.hero {
+    background-color: v.$light-gray;
+    height: calc(100vh - v.$nav-height);
+    // box-shadow: 0px 0px 40px 15px rgba(0, 0, 0, 0.2) inset;
+    position: relative;
+
+    .heroText {
+        margin: 0;
+        position: absolute;
+        top: 15%;
+        cursor: pointer;
+        h1 {
+            color: v.$black;
+            text-align: center;
+            font-size: 3.5em;
+            margin: 0;
+        }
+
+        p {
+            color: v.$dark-gray;
+            text-align: center;
+            font-size: 1.25em;
+        }
+
+        span {
+            // transition: color ease 0.3s;
+            animation-duration: 0.75s;
+            animation-name: showOff;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+            animation-delay: 0.5s;
+            // &:hover {
+            //     color: v.$black;
+            // }
+            &:nth-child(2) {
+                animation-delay: 1.5s;
+            }
+            &:nth-child(3) {
+                animation-delay: 2.5s;
+            }
+        }
+
+        @include m.desktop() {
+            top: 25%;
+            left: 5%;
+
+            h1,
+            p {
+                text-align: left;
+            }
+        }
+    }
+}
+
+@keyframes showOff {
+    from {
+        color: v.$dark-gray;
+        font-size: 1em;
+    }
+
+    50% {
+        font-size: 1.25em;
+        color: v.$blue;
+    }
+
+    to {
+        color: v.$dark-gray;
+        font-size: 1em;
+    }
+}
+
+@keyframes showOffRepeat {
+    from {
+        color: v.$dark-gray;
+        font-size: 1em;
+    }
+
+    50% {
+        font-size: 1.25em;
+        color: v.$blue;
+    }
+
+    to {
+        color: v.$dark-gray;
+        font-size: 1em;
+    }
+}

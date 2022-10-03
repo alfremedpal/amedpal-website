@@ -3,7 +3,7 @@
 
 .heroContainer {
     background-color: v.$light-gray;
-    height: calc(100vh - v.$nav-height);
+    height: calc(100vh - v.$nav-height - 75px); // 75px from the marquee
     position: relative;
 
     .heroText {

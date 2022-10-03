@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.scss'
 import Button from '../components/button/button'
+import TechMarquee from '../components/techMarquee/techMarquee'
 
 const Home: NextPage = () => {
 
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
 				<div className={styles.heroText}>
 					<h1>Alfredo Medina</h1>
 					<p onClick={() => restartAnimation()}>
-						<span style={{ animationName: animationID }}>Cloud Solutions Architect</span>&nbsp;|&nbsp;
+						<span style={{ animationName: animationID }}>Solutions Architect</span>&nbsp;|&nbsp;
 						<span style={{ animationName: animationID }}>Team builder</span>&nbsp;|&nbsp;
 						<span style={{ animationName: animationID }}>Fullstack developer</span>
 					</p>
@@ -31,8 +32,8 @@ const Home: NextPage = () => {
 						Let&apos;s talk
 					</Button>
 				</div>
-
 			</div>
+			<TechMarquee />
 		</>
 	)
 }

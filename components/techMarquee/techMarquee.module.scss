@@ -1,0 +1,8 @@
+.image {
+    margin: 0 50px;
+    filter: grayscale(1);
+    transition: filter ease 0.3s;
+    &:hover {
+        filter: grayscale(0);
+    }
+}

@@ -9,18 +9,19 @@ export default function Navbar() {
     }
 
     const links: LinkObject[] = [
-        { name: 'Blog', route: '/blog' },
-        { name: 'Contact', route: '/contact' },
         { name: 'Services', route: '/services' },
+        { name: 'Contact', route: '/contact' },
+        { name: 'About me', route: '/about' },
+        { name: 'Blog', route: '/blog' },
     ]
 
-    const [mobileNavHeight, setMobileNavHeight] = useState<string>('-60px')
+    const [mobileNavHeight, setMobileNavHeight] = useState<string>('-65px')
 
     const toggleMobileNavHeight = () => {
-        if (mobileNavHeight === '-60px') {
+        if (mobileNavHeight === '-65px') {
             setMobileNavHeight('60px')
         } else {
-            setMobileNavHeight('-60px')
+            setMobileNavHeight('-65px')
         }
     }
 

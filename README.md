@@ -19,7 +19,7 @@ npm run  lint
 ## TODO
 
 - Finish basic website with standard pages
-  - Home page
+  - ~~Home page~~
   - Contact page
   - Services page
 - Implement a blog using MongoDB

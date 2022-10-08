@@ -14,7 +14,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        top: 15%;
 
         h1 {
             color: v.$black;
@@ -91,4 +90,58 @@
         color: v.$dark-gray;
         font-size: 1em;
     }
+}
+
+.grayContainer,
+.whiteContainer {
+    min-height: 50vh;
+    width: 100%;
+
+    h2 {
+        margin: 0;
+        color: v.$black;
+        font-size: 2.5em;
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2em 1em;
+    }
+
+    .serviceIcons {
+        flex-direction: row;
+        justify-content: space-around;
+        svg {
+            height: 70px;
+            width: auto;
+            fill: v.$blue;
+            filter: drop-shadow(0 4px 14px rgba(0,118,255,.39));
+            @include m.desktop() {
+                height: 90px;
+            }
+        }
+    }
+
+    p {
+        color: v.$dark-gray;
+        line-height: 1.75;
+        text-align: center;
+
+        @include m.desktop() {
+            width: 50%;
+            line-height: 2;
+        }
+    }
+}
+
+.grayContainer {
+    background-color: v.$light-gray;
+}
+
+.whiteContainer {
+    background-color: v.$white;
 }

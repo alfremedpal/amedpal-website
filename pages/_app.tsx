@@ -1,12 +1,18 @@
-import '../styles/globals.scss'
+import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import Layout from '../components/layout/layout'
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<>
+			<Head>
+				<title>Alfredo Medina | Digital solutions</title>
+			</Head>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</>
 	)
 }
 

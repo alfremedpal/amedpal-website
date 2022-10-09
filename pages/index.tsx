@@ -70,7 +70,7 @@ const Home: NextPage = () => {
 						and I&apos;m a huge board game geek.
 					</p>
 					<Button href='/about'>
-						Learn more
+						Know me
 					</Button>
 				</div>
 			</section>

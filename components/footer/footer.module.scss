@@ -9,11 +9,17 @@
     align-items: center;
     justify-content: center;
     color: v.$dark-gray;
-    
+
     a {
         transition: color ease 0.3s;
+
         &:hover {
             color: v.$black;
         }
+    }
+
+    svg {
+        font-size: 2em;
+        margin: 0 5px;
     }
 }

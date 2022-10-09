@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { AiOutlineMail, AiOutlineGithub, AiOutlineLinkedin } from 'react-icons/ai'
 import styles from './footer.module.scss'
 
 const Footer = () => {
@@ -9,23 +9,21 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
             >
-                email
+                <AiOutlineMail />
             </a>
-            &nbsp;|&nbsp;
             <a
                 href="https://github.com/alfremedpal/"
                 target="_blank"
                 rel="noreferrer"
             >
-                github
+                <AiOutlineGithub />
             </a>
-            &nbsp;|&nbsp;
             <a
                 href="https://www.linkedin.com/in/alfredo-medina-874749121/"
                 target="_blank"
                 rel="noreferrer"
             >
-                linkedin
+                <AiOutlineLinkedin />
             </a>
         </footer>
     )

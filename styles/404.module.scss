@@ -7,18 +7,18 @@
     justify-content: center;
     min-height: calc(100vh - v.$nav-height);
     color: v.$black;
+
     h1 {
         font-size: 5em;
         margin: 0;
     }
+
     h2 {
         margin: 0;
         font-weight: normal;
     }
+
     p {
         color: v.$dark-gray;
-    }
-    a {
-        text-decoration: underline;
     }
 }

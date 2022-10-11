@@ -22,7 +22,7 @@ const Services: NextPage = () => {
                 <h1>Services</h1>
                 <p>
                     A detailed list of the services I provide, along with an estimated price. This list is not
-                    fully exhausted and there may be other solutions that I can help you with, so let's talk!
+                    fully exhausted and there may be other solutions that I can help you with, so let&apos;s talk!
                 </p>
                 <p>
                     We can schedule a <b>no-commitment 15 minute session</b> to chat about what you need and see if we
@@ -65,7 +65,7 @@ const Services: NextPage = () => {
                 <p>
                     Do you need help building your own custom digital solution? I got you covered. Personal or business
                     websites, <b>web applications</b>, CLI tools, <b>APIs</b>, and more. Frontend, backend, or fullstack:
-                    it doesn't matter. I deliver <b>efficient</b>, and <b>easy-to-maintain</b> code ready for
+                    it doesn&apos;t matter. I deliver <b>efficient</b>, and <b>easy-to-maintain</b> code ready for
                     a <b>production</b> environment. I usually work with:
                     <ul>
                         <li>Python <FaPython /> and Node <FaNodeJs /></li>
@@ -126,7 +126,7 @@ const Services: NextPage = () => {
                     </ul>
                 </p>
                 <p>
-                    $ Starts at <b>USD 150/hr</b> and will include detailed documents with each session's discussed
+                    $ Starts at <b>USD 150/hr</b> and will include detailed documents with each session&apos;s discussed
                     topics, agreements, and next steps (if applicable).
                 </p>
                 <div className="centerMobile">

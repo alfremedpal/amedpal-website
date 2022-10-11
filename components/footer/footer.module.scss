@@ -12,6 +12,7 @@
 
     a {
         transition: color ease 0.3s;
+        color: v.$dark-gray;
 
         &:hover {
             color: v.$black;

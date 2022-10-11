@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Services.module.scss'
 
 import { AiOutlineCloudServer, AiOutlineComment, AiOutlineCode } from 'react-icons/ai'
 import { FaPython, FaNodeJs } from 'react-icons/fa'
@@ -13,7 +12,7 @@ import Button from '../components/button/button'
 const Services: NextPage = () => {
 
     return (
-        <div className={styles.main}>
+        <div className="main">
             <Head>
                 <title>Services | Alfredo Medina</title>
             </Head>

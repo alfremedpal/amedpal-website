@@ -20,7 +20,7 @@ npm run  lint
 
 - Finish basic website with standard pages
   - ~~Home page~~
-  - Contact page
+  - ~~Contact page~~
   - ~~Services page~~
 - Implement a blog using MongoDB
 - Dockerize application

@@ -66,8 +66,6 @@ const Home: NextPage = () => {
 					<p>
 						With over 5 years of <b>professional development</b> experience, and 2 years of
 						<b> leadership</b> and <b>project management</b> experience, I can help you build amazing things.
-						I enjoy working with small and local businesses, I&apos;m a fan of everything open source,
-						and I&apos;m a huge board game geek.
 					</p>
 					<Button href='/about'>
 						Know me

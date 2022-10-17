@@ -31,7 +31,7 @@ const About: NextPage = () => {
                     <b> growing teams</b> from the ground up and creating an environment focused in ownership and openness.
                 </p>
                 <p>
-                    I'm also a big fan of everything open-source, movies, and a huge board game geek.
+                    I&apos;m also a big fan of everything open-source, movies, and a huge board game geek.
                 </p>
             </section>
 
@@ -61,29 +61,29 @@ const About: NextPage = () => {
 
                 <h3>Leadership roles</h3>
                 <p>
-                    Recently I've been in a leadership/management role in an international prop-tech startup in charge of 
+                    Recently I&apos;ve been in a leadership/management role in an international prop-tech startup in charge of 
                     efficiently coordinating the work, and communication of production-critical applications between 
                     technical and non-technical teams and departments.
                 </p>
                 <p>
-                    I've been ensuring an environment of openness and strong ownership by successfully leading 1:1 meetings,
+                    I&apos;ve been ensuring an environment of openness and strong ownership by successfully leading 1:1 meetings,
                     team meetings, planning sessions, and overall technical assistance; dealing with
                     any kind of problem that could arise within a team, either technical or social/personal. 
-                    I've also participated in both hiring (with its respective follow up during the first months), 
+                    I&apos;ve also participated in both hiring (with its respective follow up during the first months), 
                     and firing processes within the organization.
                 </p>
                 <p>
                     I truly enjoy building and growing teams and making sure we are aligned with the organization and deliver
-                    high quality and high value products to our end users. I'm no stranger to more business-like meetings where
-                    topics like budgets, the general company's objectives and vision, and team or department structure are
+                    high quality and high value products to our end users. I&apos;m no stranger to more business-like meetings where
+                    topics like budgets, the general company&apos;s objectives and vision, and team or department structure are
                     commonly discussed.  
                 </p>
 
                 <h3>Development roles</h3>
                 <p>
-                    On the more technical side, I have touched a bit of everything over the years. I've supported and
+                    On the more technical side, I have touched a bit of everything over the years. I&apos;ve supported and
                     maintained legacy services and applications, worked as a QA engineer making sure the product delivered
-                    is of the highest quality, I've been tasked with build new applications from the ground up to meet specific
+                    is of the highest quality, I&apos;ve been tasked with build new applications from the ground up to meet specific
                     business or client needs, helped design robust architecture and solutions on the cloud, and worked with
                     DevOps teams ensuring system uptime, CI/CD processes and more.
                 </p>
@@ -101,7 +101,7 @@ const About: NextPage = () => {
                     <h2>Personal details</h2>
                 </span>
                 <p>
-                    I am {getAge()} years old and I work remotely from my home in Mérida, México. I'm a huge board game
+                    I am {getAge()} years old and I work remotely from my home in Mérida, México. I&apos;m a huge board game
                     geek, an NBA fan (OKC!), and I like to imagine myself as a cinema connoisseur.
                     Spanish is my native language but I have no problem whatsoever with English, either written or
                     conversational, at any level.

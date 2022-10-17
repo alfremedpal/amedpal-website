@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/future/image'
 
 import { AiOutlineCloudServer, AiOutlineComment, AiOutlineCode } from 'react-icons/ai'
 import { FaPython, FaNodeJs } from 'react-icons/fa'
@@ -7,7 +8,11 @@ import {
     SiDjango, SiFlask, SiNestjs, SiJavascript, SiTypescript, SiReact, SiNextdotjs,
     SiPostgresql, SiMongodb, SiAmazondynamodb
 } from 'react-icons/si'
+
 import Button from '../components/button/button'
+
+import CP from '../public/aws-certified-cloud-practitioner.png'
+import SA from '../public/aws-certified-solutions-architect-associate.png'
 
 const Services: NextPage = () => {
 
@@ -49,6 +54,18 @@ const Services: NextPage = () => {
                     architecture, how they communicate and work with each other, their approximate cost, and the basic
                     configuration needed to get everything up and running.
                 </p>
+                <div className="centerMobile">
+                    <Image
+                        src={CP}
+                        alt="AWS Certified Cloud Practitioner"
+                        height={150}
+                    />
+                    <Image
+                        src={SA}
+                        alt="AWS Solutions Architect"
+                        height={150}
+                    />
+                </div>
                 <p>
                     $ Price may vary depending on the complexity of the solution, but it is <i>usually</i> included in
                     the general consulting fee.

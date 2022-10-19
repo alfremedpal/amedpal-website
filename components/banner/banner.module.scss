@@ -1,0 +1,25 @@
+@use "../../styles/variables" as v;
+
+.main {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 4px;
+    padding: 8px 10px 8px 8px;;
+    color: v.$black;
+}
+
+.info {
+    background-color: rgba(3, 102, 214, 0.1);
+    border-left: 4px solid rgb(3, 102, 214);
+}
+
+.warning {
+    background-color: rgba(245, 190, 49, 0.1);;
+    border-left: 4px solid rgb(245, 190, 49);;
+}
+
+.critical {
+    background-color: rgba(215, 58, 73, 0.1);
+    border-left: 4px solid rgb(215, 58, 73);
+    
+}

@@ -31,7 +31,7 @@ const Contact: NextPage = () => {
                     about what you need and how I can help you achieve it.
                 </p>
                 <div className="centerMobile">
-                    <Button href="/contact">
+                    <Button isExternal href="https://calendly.com/amedpal/quick-intro">
                         Schedule
                     </Button>
                 </div>

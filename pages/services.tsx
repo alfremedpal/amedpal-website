@@ -33,7 +33,7 @@ const Services: NextPage = () => {
                     are a good fit.
                 </p>
                 <div className="centerMobile">
-                    <Button href="/contact">
+                    <Button isExternal href="https://calendly.com/amedpal/quick-intro">
                         Schedule
                     </Button>
                 </div>

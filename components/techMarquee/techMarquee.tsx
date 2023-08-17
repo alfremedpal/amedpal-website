@@ -13,6 +13,7 @@ import dockerLogo from '../../public/svgs/docker.svg'
 import gatewayLogo from '../../public/svgs/aws-api-gateway.svg'
 import dynamoLogo from '../../public/svgs/aws-dynamodb.svg'
 import nodeLogo from '../../public/svgs/nodejs.svg'
+import terraformLogo from '../../public/svgs/terraform.svg'
 
 const TechMarquee = () => {
 
@@ -23,6 +24,7 @@ const TechMarquee = () => {
 
     const images: ImagesObj[] = [
         { path: awsLogo, alt: 'AWS' },
+        { path: terraformLogo, alt: 'Terraform' },
         { path: lambdaLogo, alt: 'Lambda' },
         { path: gatewayLogo, alt: 'API Gateway' },
         { path: dockerLogo, alt: 'Docker' },

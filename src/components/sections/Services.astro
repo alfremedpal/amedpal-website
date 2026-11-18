@@ -7,17 +7,17 @@ const t = useTranslations(Astro.currentLocale);
 ---
 
 <Section id="services" label={t.services.label}>
-	<ol class="rows" role="list">
+	<ul class="rows" role="list">
 		{
-			t.services.items.map((s, i) => (
+			t.services.items.map((s) => (
 				<li>
-					<span class="label">{String(i + 1).padStart(2, '0')}</span>
+					<span class="bullet" aria-hidden="true" />
 					<h3>{s.title}</h3>
 					<p>{s.text}</p>
 				</li>
 			))
 		}
-	</ol>
+	</ul>
 	<TechStack />
 </Section>
 
@@ -29,7 +29,7 @@ const t = useTranslations(Astro.currentLocale);
 	}
 	li {
 		display: grid;
-		grid-template-columns: 2.5rem 1fr;
+		grid-template-columns: 1.25rem 1fr;
 		gap: 0.25rem 1rem;
 		padding: 1.5rem 0.75rem;
 		margin: 0 -0.75rem;
@@ -45,12 +45,16 @@ const t = useTranslations(Astro.currentLocale);
 	li:hover {
 		background: var(--surface);
 	}
-	li:hover .label {
-		color: var(--accent);
+	li:hover .bullet {
+		background: var(--accent);
 	}
-	.label {
-		padding-top: 0.45rem;
-		transition: color 0.2s ease;
+	.bullet {
+		width: 0.5rem;
+		height: 0.5rem;
+		margin-top: 0.85rem;
+		border-radius: 50%;
+		background: var(--muted);
+		transition: background-color 0.2s ease;
 	}
 	h3 {
 		font-size: 1.75rem;

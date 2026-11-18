@@ -34,13 +34,13 @@ const en = {
 		eyebrow: 'Cloud & DevOps engineer, AWS',
 		titleA: 'You built the app.',
 		titleB: 'I’ll make it run.',
-		lede: 'Made something with AI and not sure how to get it online, keep it secure, or stop the bill from growing? I’m an AWS engineer with over 7 years running production systems. I design, deploy and look after cloud infrastructure for businesses of any size.',
+		lede: 'Made something with AI and not sure how to get it online, keep it secure, or stop the bill from growing? I’m a cloud engineer with over 7 years running production systems. I design, deploy and look after the infrastructure your business runs on, whatever its size.',
 		status: 'Taking on new projects',
 		cert: 'AWS Certified Solutions Architect – Professional',
 		certVerify: 'Verify on Credly',
 	},
 	ai: {
-		label: '01 — Built with AI?',
+		label: 'Built with AI?',
 		title: 'AI got you a working app. Production is a different job.',
 		body: 'AI tools make building fast. Putting what you built in front of real customers, reliably, securely and without surprise costs, still takes experience. That’s the part I handle, and I explain it in plain language.',
 		pains: [
@@ -54,8 +54,10 @@ const en = {
 		me: 'Me:',
 	},
 	services: {
-		label: '02 — What I do',
+		label: 'What I do',
 		tools: 'Tools I work with',
+		toolsMore: 'and more',
+		awsMore: 'many more',
 		items: [
 			{
 				title: 'Deploy and maintain AI-built apps',
@@ -70,13 +72,17 @@ const en = {
 				text: 'See where your cloud money goes and cut what you don’t need, without breaking anything.',
 			},
 			{
-				title: 'AI and automation for your business',
-				text: 'Put agents and automations to work on real tasks, and modernize the processes around them.',
+				title: 'Custom software development',
+				text: 'Web apps, APIs and internal tools, from front end to back end, built to be easy to maintain.',
+			},
+			{
+				title: 'Digital tools for your business',
+				text: 'Professional email on your own domain, team chat like Slack, shared documents and the everyday tools that keep your team organized online.',
 			},
 		],
 	},
 	process: {
-		label: '03 — How it works',
+		label: 'How it works',
 		step: 'Step',
 		items: [
 			{ title: 'A short call', text: 'Tell me what you have and where you want to go. No jargon required.' },
@@ -85,7 +91,7 @@ const en = {
 		],
 	},
 	contact: {
-		label: '04 — Contact',
+		label: 'Contact',
 		title: 'Tell me what you’re building.',
 		body: 'Small business or large team, early prototype or system already in production.',
 	},
@@ -118,13 +124,13 @@ const es: Dict = {
 		eyebrow: 'Ingeniero Cloud y DevOps, AWS',
 		titleA: 'Tú creaste la app.',
 		titleB: 'Yo la pongo a funcionar.',
-		lede: '¿Hiciste algo con IA y no sabes cómo publicarlo, mantenerlo seguro o evitar que la factura siga creciendo? Soy ingeniero de AWS con más de 7 años operando sistemas en producción. Diseño, despliego y cuido infraestructura en la nube para negocios de cualquier tamaño.',
+		lede: '¿Hiciste algo con IA y no sabes cómo publicarlo, mantenerlo seguro o evitar que la factura siga creciendo? Soy ingeniero cloud con más de 7 años operando sistemas en producción. Diseño, despliego y cuido la infraestructura sobre la que corre tu negocio, sin importar su tamaño.',
 		status: 'Disponible para nuevos proyectos',
 		cert: 'AWS Certified Solutions Architect – Professional',
 		certVerify: 'Verificar en Credly',
 	},
 	ai: {
-		label: '01 — ¿Hecho con IA?',
+		label: '¿Hecho con IA?',
 		title: 'La IA te dio una app que funciona. Producción es otro trabajo.',
 		body: 'Con herramientas de IA, construir es rápido. Ponerlo frente a clientes reales, de forma confiable, segura y sin costos sorpresa, todavía requiere experiencia. De esa parte me encargo yo, y te la explico sin tecnicismos.',
 		pains: [
@@ -138,8 +144,10 @@ const es: Dict = {
 		me: 'Yo:',
 	},
 	services: {
-		label: '02 — Qué hago',
+		label: 'Qué hago',
 		tools: 'Herramientas con las que trabajo',
+		toolsMore: 'y más',
+		awsMore: 'muchos más',
 		items: [
 			{
 				title: 'Despliegue y mantenimiento de apps hechas con IA',
@@ -154,13 +162,17 @@ const es: Dict = {
 				text: 'Descubre a dónde se va tu dinero en la nube y recorta lo que no necesitas, sin romper nada.',
 			},
 			{
-				title: 'IA y automatización para tu negocio',
-				text: 'Pon agentes y automatizaciones a trabajar en tareas reales, y moderniza los procesos a su alrededor.',
+				title: 'Desarrollo de software a la medida',
+				text: 'Aplicaciones web, APIs y herramientas internas, de frontend a backend, fáciles de mantener.',
+			},
+			{
+				title: 'Herramientas digitales para tu negocio',
+				text: 'Correo profesional con tu propio dominio, chat de equipo como Slack, documentos compartidos y las herramientas del día a día que mantienen a tu equipo organizado en línea.',
 			},
 		],
 	},
 	process: {
-		label: '03 — Cómo funciona',
+		label: 'Cómo funciona',
 		step: 'Paso',
 		items: [
 			{ title: 'Una llamada corta', text: 'Cuéntame qué tienes y a dónde quieres llegar. Sin tecnicismos.' },
@@ -169,7 +181,7 @@ const es: Dict = {
 		],
 	},
 	contact: {
-		label: '04 — Contacto',
+		label: 'Contacto',
 		title: 'Cuéntame qué estás construyendo.',
 		body: 'Negocio pequeño o equipo grande, prototipo temprano o sistema ya en producción.',
 	},

@@ -18,11 +18,13 @@ const t = useTranslations(Astro.currentLocale);
 				</li>
 			))
 		}
+		<li class="more">{t.services.toolsMore}</li>
 	</ul>
 	<div class="aws">
 		<span class="tag aws-name">AWS</span>
 		<ul class="aws-list" role="list" aria-label="AWS">
 			{awsServices.map((s) => <li class="tag">{s}</li>)}
+			<li class="tag tag-more">{t.services.awsMore}</li>
 		</ul>
 	</div>
 </div>
@@ -52,9 +54,15 @@ const t = useTranslations(Astro.currentLocale);
 			transform 0.2s ease;
 	}
 	/* Brand colour, nudged toward the text colour so it reads in both themes. */
-	.logos li:hover {
+	.logos li:not(.more):hover {
 		color: color-mix(in srgb, var(--c) 75%, var(--ink));
 		transform: translateY(-2px);
+	}
+	/* Signals the lists aren't exhaustive. */
+	.logos .more {
+		align-items: center;
+		font-family: var(--mono);
+		font-size: 0.8125rem;
 	}
 	.aws {
 		display: flex;
@@ -73,6 +81,12 @@ const t = useTranslations(Astro.currentLocale);
 		font-family: var(--mono);
 		font-size: 0.8125rem;
 		color: var(--muted);
+	}
+	.tag-more {
+		border-style: dashed;
+	}
+	.tag-more::before {
+		content: '+ ' / '';
 	}
 	.aws .aws-name {
 		border-color: var(--ink);

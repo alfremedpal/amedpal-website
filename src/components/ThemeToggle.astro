@@ -1,0 +1,42 @@
+<button class="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+	<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+		<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+		<path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"></path>
+	</svg>
+</button>
+
+<script>
+	// The saved theme is applied before paint by the inline script in Layout.astro.
+	const root = document.documentElement;
+	document.querySelector('.theme')?.addEventListener('click', () => {
+		const current = root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		const next = current === 'dark' ? 'light' : 'dark';
+		root.dataset.theme = next;
+		try {
+			localStorage.setItem('theme', next);
+		} catch {}
+	});
+</script>
+
+<style>
+	.theme {
+		display: grid;
+		place-items: center;
+		padding: 0.25rem;
+		background: none;
+		border: 0;
+		color: inherit;
+		cursor: pointer;
+	}
+	.theme svg {
+		transition: transform 0.4s ease;
+	}
+	.theme:hover svg {
+		transform: rotate(180deg);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.theme svg {
+			transition: none;
+		}
+	}
+</style>

@@ -1,0 +1,45 @@
+---
+import Section from '../Section.astro';
+
+const steps = [
+	{ title: 'A short call', text: 'Tell me what you have and where you want to go. No jargon required.' },
+	{ title: 'A clear plan', text: 'Defined scope and an honest estimate, so you know what you’re paying for.' },
+	{ title: 'Build, then hand over', text: 'You own everything: accounts, code and docs. Ongoing support if you want it.' },
+];
+---
+
+<Section id="process" label="03 — How it works">
+	<ol class="steps" role="list">
+		{
+			steps.map((s, i) => (
+				<li>
+					<span class="label">Step {i + 1}</span>
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))
+		}
+	</ol>
+</Section>
+
+<style>
+	.steps {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 2rem;
+	}
+	@media (min-width: 48rem) {
+		.steps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	h3 {
+		font-size: 1.625rem;
+		margin: 0.5rem 0;
+	}
+	p {
+		color: var(--muted);
+	}
+</style>

@@ -1,0 +1,77 @@
+---
+import Section from '../Section.astro';
+
+const services = [
+	{
+		title: 'Deploy and maintain AI-built apps',
+		text: 'Take your project from prototype to a stable, monitored production setup, then keep it healthy as it grows.',
+	},
+	{
+		title: 'Cloud infrastructure on AWS',
+		text: 'Secure, automated and documented infrastructure: infrastructure as code, CI/CD pipelines, monitoring and backups.',
+	},
+	{
+		title: 'Cost optimization',
+		text: 'See where your cloud money goes and cut what you don’t need, without breaking anything.',
+	},
+	{
+		title: 'AI and automation for your business',
+		text: 'Put agents and automations to work on real tasks, and modernize the processes around them.',
+	},
+];
+---
+
+<Section id="services" label="02 — What I do">
+	<ol class="rows" role="list">
+		{
+			services.map((s, i) => (
+				<li>
+					<span class="label">{String(i + 1).padStart(2, '0')}</span>
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))
+		}
+	</ol>
+</Section>
+
+<style>
+	.rows {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: grid;
+		grid-template-columns: 2.5rem 1fr;
+		gap: 0.25rem 1rem;
+		padding: 1.5rem 0.75rem;
+		margin: 0 -0.75rem;
+		border-bottom: 1px solid var(--line);
+		transition: background-color 0.2s ease;
+	}
+	li:first-child {
+		padding-top: 0.25rem;
+	}
+	li:last-child {
+		border-bottom: 0;
+	}
+	li:hover {
+		background: var(--surface);
+	}
+	li:hover .label {
+		color: var(--accent);
+	}
+	.label {
+		padding-top: 0.45rem;
+		transition: color 0.2s ease;
+	}
+	h3 {
+		font-size: 1.75rem;
+	}
+	p {
+		grid-column: 2;
+		color: var(--muted);
+		max-width: 40rem;
+	}
+</style>

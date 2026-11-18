@@ -1,0 +1,35 @@
+---
+// A page section: a small mono label in the left column, content on the right.
+interface Props {
+	label: string;
+	id?: string;
+}
+
+const { label, id } = Astro.props;
+---
+
+<section id={id} class="wrap section" data-reveal>
+	<p class="label">{label}</p>
+	<div><slot /></div>
+</section>
+
+<style>
+	.section {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		padding-top: 2rem;
+		padding-bottom: clamp(4rem, 10vh, 6rem);
+		border-top: 1px solid var(--line);
+	}
+	@media (min-width: 48rem) {
+		.section {
+			grid-template-columns: 14rem 1fr;
+			gap: 2rem;
+		}
+	}
+	.section :global(h2) {
+		font-size: clamp(2rem, 4.5vw, 3rem);
+		max-width: 22ch;
+	}
+</style>

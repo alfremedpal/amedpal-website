@@ -1,0 +1,17 @@
+---
+import Section from '../Section.astro';
+import CallToAction from '../CallToAction.astro';
+---
+
+<Section id="contact" label="04 — Contact">
+	<h2 class="title">Tell me what you’re building.</h2>
+	<p class="body">Small business or large team, early prototype or system already in production.</p>
+	<CallToAction />
+</Section>
+
+<style>
+	/* Class selector so it outranks Section's generic h2 size. */
+	.title.title {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+	}
+</style>

@@ -1,0 +1,131 @@
+:root {
+	--bg: #f6f4ef;
+	--surface: #eeebe3;
+	--ink: #1b1d1f;
+	--muted: #5d6166;
+	--line: #d9d5cb;
+	--accent: #a8461a;
+
+	--serif: 'Instrument Serif', Georgia, serif;
+	--sans: 'IBM Plex Sans', system-ui, sans-serif;
+	--mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	--max: 68rem;
+	--gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		--bg: #141516;
+		--surface: #1c1d1f;
+		--ink: #ecebe7;
+		--muted: #9a9ea3;
+		--line: #2e3033;
+		--accent: #e9814b;
+		color-scheme: dark;
+	}
+}
+:root[data-theme='dark'] {
+	--bg: #141516;
+	--surface: #1c1d1f;
+	--ink: #ecebe7;
+	--muted: #9a9ea3;
+	--line: #2e3033;
+	--accent: #e9814b;
+	color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--sans);
+	font-size: 1.0625rem;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--serif);
+	font-weight: 400;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+}
+
+::selection {
+	background: var(--accent);
+	color: var(--bg);
+}
+
+.wrap {
+	max-width: var(--max);
+	margin: 0 auto;
+	padding: 0 var(--gutter);
+}
+
+.label {
+	font-family: var(--mono);
+	font-size: 0.8125rem;
+	letter-spacing: 0.02em;
+	color: var(--muted);
+}
+
+/* Links with an underline that grows on hover */
+.link {
+	text-decoration: none;
+	background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+	transition: background-size 0.25s ease;
+}
+.link:hover {
+	background-size: 100% 1px;
+}
+
+.js [data-reveal] {
+	opacity: 0;
+	transform: translateY(12px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+.js [data-reveal].is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.js [data-reveal] {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+.body {
+	max-width: 38rem;
+	margin-top: 1.25rem;
+	color: var(--muted);
+}

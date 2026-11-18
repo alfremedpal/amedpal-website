@@ -1,0 +1,62 @@
+---
+import Krackle from '../Krackle.astro';
+import CallToAction from '../CallToAction.astro';
+import { site } from '../../data/site';
+---
+
+<section class="wrap hero">
+	<Krackle />
+	<p class="label">{site.name} — Cloud &amp; DevOps engineer, AWS</p>
+	<h1>You built the app.<br /><em>I’ll make it run.</em></h1>
+	<p class="lede">
+		Made something with AI and not sure how to get it online, keep it secure, or stop the bill from growing? I’m an
+		AWS engineer with over 7 years running production systems. I design, deploy and look after cloud infrastructure
+		for businesses of any size.
+	</p>
+	<CallToAction />
+	<p class="label status"><span class="dot" aria-hidden="true"></span>Taking on new projects</p>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		isolation: isolate;
+		padding-top: clamp(4rem, 12vh, 8rem);
+		padding-bottom: clamp(4rem, 10vh, 7rem);
+	}
+	h1 {
+		font-size: clamp(3rem, 9vw, 6.5rem);
+		margin: 1.25rem 0 2rem;
+	}
+	h1 em {
+		color: var(--accent);
+	}
+	.lede {
+		max-width: 38rem;
+		font-size: 1.1875rem;
+		color: var(--muted);
+	}
+	.status {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-top: 3rem;
+	}
+	.dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: #3f9b5b;
+		animation: pulse 2.4s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		50% {
+			opacity: 0.35;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.dot {
+			animation: none;
+		}
+	}
+</style>

@@ -27,10 +27,11 @@ const t = useTranslations(Astro.currentLocale);
 		padding-top: clamp(4rem, 12vh, 8rem);
 		padding-bottom: clamp(4rem, 10vh, 7rem);
 	}
-	/* Phones: lift the dot band so it bleeds onto the lede above the CTA. */
+	/* Phones: tighter gap under the nav; lift the dot band so it bleeds onto the lede above the CTA. */
 	@media (max-width: 48rem) {
 		.hero {
 			--krackle-lift: 5rem;
+			padding-top: clamp(2rem, 6vh, 3rem);
 		}
 	}
 	h1 {

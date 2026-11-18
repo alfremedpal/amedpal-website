@@ -1,6 +1,7 @@
 ---
 import Krackle from '../Krackle.astro';
 import CallToAction from '../CallToAction.astro';
+import Certification from '../Certification.astro';
 import { site } from '../../data/site';
 import { useTranslations } from '../../i18n/ui';
 
@@ -13,7 +14,10 @@ const t = useTranslations(Astro.currentLocale);
 	<h1>{t.hero.titleA}<br /><em>{t.hero.titleB}</em></h1>
 	<p class="lede">{t.hero.lede}</p>
 	<CallToAction />
-	<p class="label status"><span class="dot" aria-hidden="true"></span>{t.hero.status}</p>
+	<div class="proof">
+		<p class="label status"><span class="dot" aria-hidden="true"></span>{t.hero.status}</p>
+		<Certification />
+	</div>
 </section>
 
 <style>
@@ -35,11 +39,17 @@ const t = useTranslations(Astro.currentLocale);
 		font-size: 1.1875rem;
 		color: var(--muted);
 	}
+	.proof {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1rem 2rem;
+		margin-top: 3rem;
+	}
 	.status {
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
-		margin-top: 3rem;
 	}
 	.dot {
 		width: 0.5rem;

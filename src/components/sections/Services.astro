@@ -1,5 +1,6 @@
 ---
 import Section from '../Section.astro';
+import TechStack from '../TechStack.astro';
 import { useTranslations } from '../../i18n/ui';
 
 const t = useTranslations(Astro.currentLocale);
@@ -17,6 +18,7 @@ const t = useTranslations(Astro.currentLocale);
 			))
 		}
 	</ol>
+	<TechStack />
 </Section>
 
 <style>

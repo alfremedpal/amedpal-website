@@ -36,6 +36,8 @@ const en = {
 		titleB: 'I’ll make it run.',
 		lede: 'Made something with AI and not sure how to get it online, keep it secure, or stop the bill from growing? I’m an AWS engineer with over 7 years running production systems. I design, deploy and look after cloud infrastructure for businesses of any size.',
 		status: 'Taking on new projects',
+		cert: 'AWS Certified Solutions Architect – Professional',
+		certVerify: 'Verify on Credly',
 	},
 	ai: {
 		label: '01 — Built with AI?',
@@ -47,9 +49,13 @@ const en = {
 			'I’m not sure my users’ data is safe.',
 			'The hosting bill keeps going up and I don’t know why.',
 		],
+		reply: 'Sound familiar? I can help with all of it.',
+		from: 'Client:',
+		me: 'Me:',
 	},
 	services: {
 		label: '02 — What I do',
+		tools: 'Tools I work with',
 		items: [
 			{
 				title: 'Deploy and maintain AI-built apps',
@@ -114,6 +120,8 @@ const es: Dict = {
 		titleB: 'Yo la pongo a funcionar.',
 		lede: '¿Hiciste algo con IA y no sabes cómo publicarlo, mantenerlo seguro o evitar que la factura siga creciendo? Soy ingeniero de AWS con más de 7 años operando sistemas en producción. Diseño, despliego y cuido infraestructura en la nube para negocios de cualquier tamaño.',
 		status: 'Disponible para nuevos proyectos',
+		cert: 'AWS Certified Solutions Architect – Professional',
+		certVerify: 'Verificar en Credly',
 	},
 	ai: {
 		label: '01 — ¿Hecho con IA?',
@@ -125,9 +133,13 @@ const es: Dict = {
 			'No estoy seguro de que los datos de mis usuarios estén protegidos.',
 			'La factura del hosting no deja de subir y no sé por qué.',
 		],
+		reply: '¿Te suena? Te ayudo con todo eso.',
+		from: 'Cliente:',
+		me: 'Yo:',
 	},
 	services: {
 		label: '02 — Qué hago',
+		tools: 'Herramientas con las que trabajo',
 		items: [
 			{
 				title: 'Despliegue y mantenimiento de apps hechas con IA',

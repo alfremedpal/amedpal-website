@@ -1,0 +1,87 @@
+---
+// Monochrome logo row (brand colour on hover) plus AWS services as text tags.
+import { tools, awsServices } from '../data/stack';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<div class="stack">
+	<p class="label">{t.services.tools}</p>
+	<ul class="logos" role="list">
+		{
+			tools.map((tool) => (
+				<li style={`--c:${tool.hex}`} title={tool.name}>
+					<svg viewBox="0 0 24 24" width="28" height="28" role="img" aria-label={tool.name}>
+						<path d={tool.path} fill="currentColor" />
+					</svg>
+				</li>
+			))
+		}
+	</ul>
+	<div class="aws">
+		<span class="tag aws-name">AWS</span>
+		<ul class="aws-list" role="list" aria-label="AWS">
+			{awsServices.map((s) => <li class="tag">{s}</li>)}
+		</ul>
+	</div>
+</div>
+
+<style>
+	.stack {
+		margin-top: 2.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--line);
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.logos {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem 1.75rem;
+		margin-top: 1.25rem;
+		color: var(--muted);
+	}
+	.logos li {
+		display: flex;
+		transition:
+			color 0.2s ease,
+			transform 0.2s ease;
+	}
+	/* Brand colour, nudged toward the text colour so it reads in both themes. */
+	.logos li:hover {
+		color: color-mix(in srgb, var(--c) 75%, var(--ink));
+		transform: translateY(-2px);
+	}
+	.aws {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+	}
+	/* Tags flow with the AWS label; the list keeps its semantics for screen readers. */
+	.aws-list {
+		display: contents;
+	}
+	.tag {
+		padding: 0.3rem 0.65rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		font-family: var(--mono);
+		font-size: 0.8125rem;
+		color: var(--muted);
+	}
+	.aws .aws-name {
+		border-color: var(--ink);
+		color: var(--ink);
+		font-weight: 500;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.logos li:hover {
+			transform: none;
+		}
+	}
+</style>

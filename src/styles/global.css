@@ -6,8 +6,8 @@
 	--line: #d9d5cb;
 	--accent: #a8461a;
 
-	--serif: 'Instrument Serif', Georgia, serif;
-	--sans: 'IBM Plex Sans', system-ui, sans-serif;
+	--serif: 'Fraunces', Georgia, serif;
+	--sans: 'Figtree', system-ui, sans-serif;
 	--mono: 'IBM Plex Mono', ui-monospace, monospace;
 
 	--max: 68rem;
@@ -59,9 +59,11 @@ h1,
 h2,
 h3 {
 	font-family: var(--serif);
-	font-weight: 400;
+	font-weight: 360;
+	/* Fraunces' soft axis rounds the terminals to match the dot texture. */
+	font-variation-settings: 'SOFT' 100, 'WONK' 0;
 	line-height: 1.05;
-	letter-spacing: -0.01em;
+	letter-spacing: -0.02em;
 	margin: 0;
 }
 

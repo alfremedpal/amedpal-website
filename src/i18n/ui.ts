@@ -24,7 +24,11 @@ const en = {
 		language: 'Language',
 	},
 	footer: { social: 'Social' },
-	cta: { book: 'Book a free 15-min call' },
+	cta: {
+		book: 'Book a free 15-min call',
+		whatsapp: 'Message me on WhatsApp',
+		whatsappText: 'Hi Alfredo, I found your website and I’d like to talk about my project.',
+	},
 	suggest: { text: 'This site is also available in English.', action: 'View in English', dismiss: 'Dismiss' },
 	hero: {
 		eyebrow: 'Cloud & DevOps engineer, AWS',
@@ -98,7 +102,11 @@ const es: Dict = {
 		language: 'Idioma',
 	},
 	footer: { social: 'Redes' },
-	cta: { book: 'Agenda una llamada gratis de 15 min' },
+	cta: {
+		book: 'Agenda una llamada gratis de 15 min',
+		whatsapp: 'Escríbeme por WhatsApp',
+		whatsappText: 'Hola Alfredo, vi tu sitio web y me gustaría platicar sobre mi proyecto.',
+	},
 	suggest: { text: 'Este sitio también está disponible en español.', action: 'Ver en español', dismiss: 'Cerrar' },
 	hero: {
 		eyebrow: 'Ingeniero Cloud y DevOps, AWS',

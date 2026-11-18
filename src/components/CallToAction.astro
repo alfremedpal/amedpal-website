@@ -1,12 +1,22 @@
 ---
+// Contact buttons (WhatsApp first, then call booking) and the email link.
+// WhatsApp is hidden while site.whatsapp is empty.
 import { site } from '../data/site';
 import { useTranslations } from '../i18n/ui';
 
 const t = useTranslations(Astro.currentLocale);
+
+const book = { href: site.calendly, label: t.cta.book };
+const whatsapp = site.whatsapp
+	? { href: `https://wa.me/${site.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(t.cta.whatsappText)}`, label: t.cta.whatsapp }
+	: null;
+
+const [primary, secondary] = whatsapp ? [whatsapp, book] : [book, null];
 ---
 
 <div class="actions">
-	<a class="btn" href={site.calendly} target="_blank" rel="noreferrer">{t.cta.book}</a>
+	<a class="btn" href={primary.href} target="_blank" rel="noreferrer">{primary.label}</a>
+	{secondary && <a class="btn btn-secondary" href={secondary.href} target="_blank" rel="noreferrer">{secondary.label}</a>}
 	<a class="link" href={`mailto:${site.email}`}>{site.email}</a>
 </div>
 
@@ -15,7 +25,7 @@ const t = useTranslations(Astro.currentLocale);
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 1.25rem 1.75rem;
+		gap: 1rem 1.25rem;
 		margin-top: 2.25rem;
 	}
 	.btn {
@@ -23,15 +33,37 @@ const t = useTranslations(Astro.currentLocale);
 		padding: 0.8rem 1.3rem;
 		background: var(--ink);
 		color: var(--bg);
+		border: 1px solid var(--ink);
 		text-decoration: none;
 		font-weight: 500;
 		border-radius: 6px;
 		transition:
 			background-color 0.2s ease,
+			border-color 0.2s ease,
+			color 0.2s ease,
 			transform 0.2s ease;
 	}
 	.btn:hover {
 		background: var(--accent);
+		border-color: var(--accent);
 		transform: translateY(-1px);
+	}
+	/* Outlined, so it doesn't compete with the primary button. */
+	.btn-secondary {
+		background: transparent;
+		color: var(--ink);
+		border-color: var(--muted); /* --line is too faint (<3:1) for a button edge */
+	}
+	.btn-secondary:hover {
+		background: transparent;
+		color: var(--accent);
+		border-color: var(--accent);
+	}
+	/* Phones: buttons stack at full width, same size. */
+	@media (max-width: 40rem) {
+		.btn {
+			width: 100%;
+			text-align: center;
+		}
 	}
 </style>

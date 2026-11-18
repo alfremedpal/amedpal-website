@@ -1,0 +1,13 @@
+{
+	"name": "Alfredo Medina · Cloud & DevOps engineer",
+	"short_name": "amedpal",
+	"start_url": "/",
+	"display": "browser",
+	"background_color": "#f6f4ef",
+	"theme_color": "#f6f4ef",
+	"icons": [
+		{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+	]
+}

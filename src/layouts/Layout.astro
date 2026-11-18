@@ -22,8 +22,12 @@ const alternates = (Object.keys(languages) as (keyof typeof languages)[]).map((l
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={t.meta.description} />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#141516" media="(prefers-color-scheme: dark)" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

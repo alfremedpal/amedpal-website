@@ -1,22 +1,15 @@
 ---
 import Section from '../Section.astro';
+import { useTranslations } from '../../i18n/ui';
 
-const pains = [
-	'It works on my computer, but I don’t know how to put it online.',
-	'It’s live, but it’s slow, it crashes, or I’m afraid to change anything.',
-	'I’m not sure my users’ data is safe.',
-	'The hosting bill keeps going up and I don’t know why.',
-];
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<Section label="01 — Built with AI?">
-	<h2>AI got you a working app. Production is a different job.</h2>
-	<p class="body">
-		AI tools make building fast. Putting what you built in front of real customers, reliably, securely and without
-		surprise costs, still takes experience. That’s the part I handle, and I explain it in plain language.
-	</p>
+<Section label={t.ai.label}>
+	<h2>{t.ai.title}</h2>
+	<p class="body">{t.ai.body}</p>
 	<ul class="pains" role="list">
-		{pains.map((p) => <li>“{p}”</li>)}
+		{t.ai.pains.map((p) => <li>“{p}”</li>)}
 	</ul>
 </Section>
 

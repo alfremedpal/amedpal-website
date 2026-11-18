@@ -2,19 +2,18 @@
 import Krackle from '../Krackle.astro';
 import CallToAction from '../CallToAction.astro';
 import { site } from '../../data/site';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <section class="wrap hero">
 	<Krackle />
-	<p class="label">{site.name} — Cloud &amp; DevOps engineer, AWS</p>
-	<h1>You built the app.<br /><em>I’ll make it run.</em></h1>
-	<p class="lede">
-		Made something with AI and not sure how to get it online, keep it secure, or stop the bill from growing? I’m an
-		AWS engineer with over 7 years running production systems. I design, deploy and look after cloud infrastructure
-		for businesses of any size.
-	</p>
+	<p class="label">{site.name} — {t.hero.eyebrow}</p>
+	<h1>{t.hero.titleA}<br /><em>{t.hero.titleB}</em></h1>
+	<p class="lede">{t.hero.lede}</p>
 	<CallToAction />
-	<p class="label status"><span class="dot" aria-hidden="true"></span>Taking on new projects</p>
+	<p class="label status"><span class="dot" aria-hidden="true"></span>{t.hero.status}</p>
 </section>
 
 <style>

@@ -1,0 +1,23 @@
+---
+// The home page, shared by every locale (src/pages/index.astro, src/pages/es/index.astro).
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Hero from './sections/Hero.astro';
+import BuiltWithAi from './sections/BuiltWithAi.astro';
+import Services from './sections/Services.astro';
+import Process from './sections/Process.astro';
+import Contact from './sections/Contact.astro';
+---
+
+<Layout>
+	<Header />
+	<main>
+		<Hero />
+		<BuiltWithAi />
+		<Services />
+		<Process />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>

@@ -1,0 +1,61 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languages, getLang, useTranslations, type Lang } from '../i18n/ui';
+
+const current = getLang(Astro.currentLocale);
+const t = useTranslations(Astro.currentLocale);
+const path = Astro.url.pathname.replace(/^\/es(\/|$)/, '/').slice(1);
+const langs = Object.keys(languages) as Lang[];
+---
+
+<div class="lang label" role="group" aria-label={t.nav.language}>
+	{
+		langs.map((l) => (
+			<a
+				href={getRelativeLocaleUrl(l, path)}
+				hreflang={languages[l].htmlLang}
+				lang={languages[l].htmlLang}
+				title={languages[l].name}
+				data-lang={l}
+				aria-current={l === current ? 'true' : undefined}
+			>
+				{languages[l].label}
+			</a>
+		))
+	}
+</div>
+
+<script>
+	// Remember an explicit choice so the browser-language suggestion stops showing (LanguageSuggestion.astro).
+	// Covers left click, middle click / new tab (auxclick) and keyboard activation.
+	document.querySelectorAll<HTMLAnchorElement>('.lang a[data-lang]').forEach((a) => {
+		const save = () => {
+			try {
+				localStorage.setItem('lang', a.dataset.lang!);
+			} catch {}
+		};
+		a.addEventListener('click', save);
+		a.addEventListener('auxclick', save);
+	});
+</script>
+
+<style>
+	.lang {
+		display: flex;
+		gap: 0.15rem;
+	}
+	a {
+		padding: 0.15rem 0.3rem;
+		text-decoration: none;
+		color: var(--muted);
+		border-radius: 2px;
+		transition: color 0.2s ease;
+	}
+	a:hover {
+		color: var(--ink);
+	}
+	a[aria-current='true'] {
+		color: var(--ink);
+		background: var(--surface);
+	}
+</style>

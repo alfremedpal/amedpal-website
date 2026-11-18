@@ -1,9 +1,12 @@
 ---
 import { site } from '../data/site';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <div class="actions">
-	<a class="btn" href={site.calendly} target="_blank" rel="noreferrer">Book a free 15-min call</a>
+	<a class="btn" href={site.calendly} target="_blank" rel="noreferrer">{t.cta.book}</a>
 	<a class="link" href={`mailto:${site.email}`}>{site.email}</a>
 </div>
 

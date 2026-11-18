@@ -1,10 +1,13 @@
 ---
 import { site } from '../data/site';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <footer class="wrap footer">
 	<span class="label">© {new Date().getFullYear()} {site.name}</span>
-	<nav class="label" aria-label="Social">
+	<nav class="label" aria-label={t.footer.social}>
 		{
 			site.socials.map((s) => (
 				<a class="link" href={s.href} target="_blank" rel="noreferrer">

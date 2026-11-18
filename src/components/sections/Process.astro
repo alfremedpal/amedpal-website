@@ -1,19 +1,16 @@
 ---
 import Section from '../Section.astro';
+import { useTranslations } from '../../i18n/ui';
 
-const steps = [
-	{ title: 'A short call', text: 'Tell me what you have and where you want to go. No jargon required.' },
-	{ title: 'A clear plan', text: 'Defined scope and an honest estimate, so you know what you’re paying for.' },
-	{ title: 'Build, then hand over', text: 'You own everything: accounts, code and docs. Ongoing support if you want it.' },
-];
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<Section id="process" label="03 — How it works">
+<Section id="process" label={t.process.label}>
 	<ol class="steps" role="list">
 		{
-			steps.map((s, i) => (
+			t.process.items.map((s, i) => (
 				<li>
-					<span class="label">Step {i + 1}</span>
+					<span class="label">{t.process.step} {i + 1}</span>
 					<h3>{s.title}</h3>
 					<p>{s.text}</p>
 				</li>

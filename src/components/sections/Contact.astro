@@ -1,11 +1,14 @@
 ---
 import Section from '../Section.astro';
 import CallToAction from '../CallToAction.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<Section id="contact" label="04 — Contact">
-	<h2 class="title">Tell me what you’re building.</h2>
-	<p class="body">Small business or large team, early prototype or system already in production.</p>
+<Section id="contact" label={t.contact.label}>
+	<h2 class="title">{t.contact.title}</h2>
+	<p class="body">{t.contact.body}</p>
 	<CallToAction />
 </Section>
 

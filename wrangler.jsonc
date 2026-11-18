@@ -1,0 +1,12 @@
+// Cloudflare Workers config. The site is fully static, so this only serves the
+// built `dist/` folder as assets (no Worker script). If the site ever needs SSR,
+// add the @astrojs/cloudflare adapter and follow its docs to point `main` at the
+// generated worker.
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "amedpal-website",
+	"compatibility_date": "2026-11-18",
+	"assets": {
+		"directory": "./dist",
+	},
+}

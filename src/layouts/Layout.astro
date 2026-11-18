@@ -31,6 +31,7 @@ const alternates = (Object.keys(languages) as (keyof typeof languages)[]).map((l
 			rel="stylesheet"
 		/>
 		<title>{t.meta.title}</title>
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="canonical" href={getAbsoluteLocaleUrl(lang, path)} />
 		{alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 		<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl(defaultLang, path)} />

@@ -27,6 +27,12 @@ const t = useTranslations(Astro.currentLocale);
 		padding-top: clamp(4rem, 12vh, 8rem);
 		padding-bottom: clamp(4rem, 10vh, 7rem);
 	}
+	/* Phones: lift the dot band so it bleeds onto the lede above the CTA. */
+	@media (max-width: 48rem) {
+		.hero {
+			--krackle-lift: 5rem;
+		}
+	}
 	h1 {
 		font-size: clamp(3rem, 9vw, 6.5rem);
 		margin: 1.25rem 0 2rem;

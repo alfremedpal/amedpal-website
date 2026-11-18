@@ -15,6 +15,8 @@ const { label, id } = Astro.props;
 
 <style>
 	.section {
+		position: relative;
+		isolation: isolate; /* lets a Krackle texture sit behind the content */
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 1.5rem;

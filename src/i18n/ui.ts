@@ -85,7 +85,7 @@ const en = {
 		label: 'How it works',
 		step: 'Step',
 		items: [
-			{ title: 'A short call', text: 'Tell me what you have and where you want to go. No jargon required.' },
+			{ title: 'A quick text or a short call', text: 'Message me or book a call. Tell me what you have and where you want to go. No jargon required.' },
 			{ title: 'A clear plan', text: 'Defined scope and an honest estimate, so you know what you’re paying for.' },
 			{ title: 'Build, then hand over', text: 'You own everything: accounts, code and docs. Ongoing support if you want it.' },
 		],
@@ -175,7 +175,7 @@ const es: Dict = {
 		label: 'Cómo funciona',
 		step: 'Paso',
 		items: [
-			{ title: 'Una llamada corta', text: 'Cuéntame qué tienes y a dónde quieres llegar. Sin tecnicismos.' },
+			{ title: 'Un mensaje rápido o una llamada corta', text: 'Escríbeme o agenda una llamada. Cuéntame qué tienes y a dónde quieres llegar. Sin tecnicismos.' },
 			{ title: 'Un plan claro', text: 'Alcance definido y una estimación honesta, para que sepas qué estás pagando.' },
 			{ title: 'Construyo y te entrego', text: 'Todo es tuyo: cuentas, código y documentación. Soporte continuo si lo necesitas.' },
 		],

@@ -87,6 +87,17 @@ const jsonLd = {
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />
 
 		<script is:inline>
+			// Google Tag Manager: live site only, so dev, local builds and preview deploys stay out of analytics.
+			if (location.hostname === 'amedpal.com') {
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+				const s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NTSH7TKZ';
+				document.head.appendChild(s);
+			}
+		</script>
+		<script is:inline>
 			document.documentElement.classList.add('js');
 			try {
 				const t = localStorage.getItem('theme');

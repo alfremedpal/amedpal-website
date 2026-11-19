@@ -9,4 +9,6 @@
 	"assets": {
 		"directory": "./dist",
 	},
+	// Required by `wrangler preview` (used for non-production branch builds). Empty = same as top level.
+	"previews": {},
 }

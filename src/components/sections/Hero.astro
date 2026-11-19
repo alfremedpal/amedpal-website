@@ -1,0 +1,78 @@
+---
+import Krackle from '../Krackle.astro';
+import CallToAction from '../CallToAction.astro';
+import Certification from '../Certification.astro';
+import { site } from '../../data/site';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<section class="wrap hero">
+	<Krackle />
+	<p class="label">{site.name} — {t.hero.eyebrow}</p>
+	<h1>{t.hero.titleA}<br /><em>{t.hero.titleB}</em></h1>
+	<p class="lede">{t.hero.lede}</p>
+	<CallToAction />
+	<div class="proof">
+		<p class="label status"><span class="dot" aria-hidden="true"></span>{t.hero.status}</p>
+		<Certification />
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		isolation: isolate;
+		padding-top: clamp(4rem, 12vh, 8rem);
+		padding-bottom: clamp(4rem, 10vh, 7rem);
+	}
+	/* Phones: tighter gap under the nav; lift the dot band so it bleeds onto the lede above the CTA. */
+	@media (max-width: 48rem) {
+		.hero {
+			--krackle-lift: 5rem;
+			padding-top: clamp(2rem, 6vh, 3rem);
+		}
+	}
+	h1 {
+		font-size: clamp(3rem, 9vw, 6.5rem);
+		margin: 1.25rem 0 2rem;
+	}
+	h1 em {
+		color: var(--accent);
+	}
+	.lede {
+		max-width: 38rem;
+		font-size: 1.1875rem;
+		color: var(--muted);
+	}
+	.proof {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1rem 2rem;
+		margin-top: 3rem;
+	}
+	.status {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: #3f9b5b;
+		animation: pulse 2.4s ease-in-out infinite;
+	}
+	@keyframes pulse {
+		50% {
+			opacity: 0.35;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.dot {
+			animation: none;
+		}
+	}
+</style>

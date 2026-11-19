@@ -1,26 +1,43 @@
-# amedpal website
+# Astro Starter Kit: Minimal
 
-This is the latest (and hopefully final) version of my production website, built with NextJS, Typescript, and SCSS. Hosted on Netlify.
-
-## Gettings started
-
-Install dependencies by running `npm install` and run the development server:
-
-```bash
-npm run dev
+```sh
+npm create astro@latest -- --template minimal
 ```
 
-Before sending it to production make sure it does not have any warnings or errors because the `build` command will fail if it encounters any, thus resulting in a failed deployment. To check for warnings and errors run:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-npm run  lint
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-## TODO
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-- Finish basic website with standard pages
-  - ~~Home page~~
-  - ~~Contact page~~
-  - ~~Services page~~
-- Implement a blog using MongoDB
-- Dockerize application
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `pnpm install`      | Installs dependencies                            |
+| `pnpm dev`          | Starts local dev server at `localhost:4321`      |
+| `pnpm build`        | Build your production site to `./dist/`          |
+| `pnpm preview`      | Preview your build locally, before deploying     |
+| `pnpm astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

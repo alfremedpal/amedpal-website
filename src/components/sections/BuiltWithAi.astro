@@ -1,0 +1,84 @@
+---
+import Section from '../Section.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Section label={t.ai.label}>
+	<h2>{t.ai.title}</h2>
+	<p class="body">{t.ai.body}</p>
+	<!-- The problems people message me with, as a chat thread, plus my reply. -->
+	<ul class="chat" role="list">
+		{
+			t.ai.pains.map((p, i) => (
+				<li class="bubble in" style={`--i:${i}`}>
+					<span class="sr-only">{t.ai.from} </span>
+					{p}
+				</li>
+			))
+		}
+		<li class="bubble out" style={`--i:${t.ai.pains.length}`}>
+			<span class="sr-only">{t.ai.me} </span>
+			{t.ai.reply}
+		</li>
+	</ul>
+</Section>
+
+<style>
+	.chat {
+		list-style: none;
+		padding: 0;
+		margin: 2.25rem 0 0;
+		max-width: 34rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.bubble {
+		max-width: 85%;
+		padding: 0.7rem 1rem;
+		border-radius: 18px;
+		line-height: 1.4;
+	}
+	/* Incoming: the client's messages, on the left. */
+	.in {
+		align-self: flex-start;
+		background: var(--surface);
+		border-bottom-left-radius: 6px;
+	}
+	/* Outgoing: my reply, on the right. */
+	.out {
+		align-self: flex-end;
+		margin-top: 0.5rem;
+		background: var(--ink);
+		color: var(--bg);
+		border-bottom-right-radius: 6px;
+	}
+
+	/* Bubbles arrive one by one when the section scrolls into view
+	   (Section adds .is-visible; .js gates it so no-JS shows everything). */
+	:global(.js) .bubble {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	:global(.js .is-visible) .bubble {
+		animation: arrive 0.45s ease forwards;
+		animation-delay: calc(0.25s + var(--i) * 0.35s);
+	}
+	@keyframes arrive {
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:global(.js) .bubble {
+			opacity: 1;
+			transform: none;
+		}
+		:global(.js .is-visible) .bubble {
+			animation: none;
+		}
+	}
+</style>

@@ -1,0 +1,35 @@
+---
+import { site } from '../data/site';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<footer class="wrap footer">
+	<span class="label">© {new Date().getFullYear()} {site.name}</span>
+	<nav class="label" aria-label={t.footer.social}>
+		{
+			site.socials.map((s) => (
+				<a class="link" href={s.href} target="_blank" rel="noreferrer">
+					{s.label}
+				</a>
+			))
+		}
+	</nav>
+</footer>
+
+<style>
+	.footer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-top: 2rem;
+		padding-bottom: 2.5rem;
+		border-top: 1px solid var(--line);
+	}
+	nav {
+		display: flex;
+		gap: 1.5rem;
+	}
+</style>

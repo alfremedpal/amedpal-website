@@ -1,0 +1,52 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { site } from '../data/site';
+import { getLang, useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+const links = [
+	{ label: t.nav.services, href: '#services' },
+	{ label: t.nav.process, href: '#process' },
+	{ label: t.nav.contact, href: '#contact' },
+];
+---
+
+<header class="wrap nav">
+	<a href={getRelativeLocaleUrl(getLang(Astro.currentLocale))} class="brand">{site.brand}</a>
+	<nav aria-label={t.nav.label}>
+		{links.map((l) => <a class="link section-link" href={l.href}>{l.label}</a>)}
+		<LanguageSwitcher />
+		<ThemeToggle />
+	</nav>
+</header>
+
+<style>
+	.nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.5rem;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+	.brand {
+		font-family: var(--mono);
+		font-weight: 500;
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		font-size: 0.9375rem;
+	}
+	/* One-page site: on narrow screens keep just the brand, language and theme. */
+	@media (max-width: 40rem) {
+		.section-link {
+			display: none;
+		}
+	}
+</style>

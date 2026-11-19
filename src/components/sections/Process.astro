@@ -1,0 +1,42 @@
+---
+import Section from '../Section.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Section id="process" label={t.process.label}>
+	<ol class="steps" role="list">
+		{
+			t.process.items.map((s, i) => (
+				<li>
+					<span class="label">{t.process.step} {i + 1}</span>
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))
+		}
+	</ol>
+</Section>
+
+<style>
+	.steps {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 2rem;
+	}
+	@media (min-width: 48rem) {
+		.steps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	h3 {
+		font-size: 1.625rem;
+		margin: 0.5rem 0;
+	}
+	p {
+		color: var(--muted);
+	}
+</style>

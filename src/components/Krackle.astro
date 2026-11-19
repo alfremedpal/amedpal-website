@@ -1,0 +1,154 @@
+---
+// Kirby-krackle dot texture. Generated at build time with a fixed seed, so the
+// pattern is stable and ships as plain SVG (no client JS). Large clusters sit on
+// a jittered grid and overlap their neighbours so the field has no big gaps; dots
+// are big near each centre and shrink outward, and loose specks fill in between.
+// Every group then floats slowly along its own random drift (see `motion`).
+interface Props {
+	/** Which side of the parent the field sits on (desktop). */
+	side?: 'left' | 'right';
+	/** Layout seed; each instance can use its own so they don't look copied. */
+	seed?: number;
+}
+const { side = 'right', seed = 7 } = Astro.props;
+
+type Dot = { x: number; y: number; r: number };
+
+const W = 600;
+const H = 800;
+const COLS = 3;
+const ROWS = 4;
+const DOTS_PER_CLUSTER = 60;
+const MAX_RADIUS = 11;
+const SPECKS = 180;
+
+// Park-Miller PRNG. Layout and motion use separate seeds so tweaking one never
+// reshuffles the other.
+const prng = (seed: number) => () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+const rand = prng(seed);
+const motionRand = prng(seed + 4);
+const dot = (x: number, y: number, r: number): Dot => ({ x: +x.toFixed(1), y: +y.toFixed(1), r: +r.toFixed(1) });
+
+// Each group floats on its own path: a random drift, turn and pace.
+type Group = { style: string; dots: Dot[] };
+const motion = () => {
+	const a = motionRand() * Math.PI * 2;
+	const dist = 10 + motionRand() * 8;
+	const dur = 8 + motionRand() * 6;
+	return [
+		`--dx:${(Math.cos(a) * dist).toFixed(1)}px`,
+		`--dy:${(Math.sin(a) * dist).toFixed(1)}px`,
+		`--rot:${((motionRand() - 0.5) * 8).toFixed(1)}deg`,
+		`animation-duration:${dur.toFixed(1)}s`,
+		`animation-delay:${(-motionRand() * dur).toFixed(1)}s`,
+	].join(';');
+};
+
+const groups: Group[] = [];
+
+for (let row = 0; row < ROWS; row++) {
+	for (let col = 0; col < COLS; col++) {
+		const cx = ((col + 0.15 + rand() * 0.7) * W) / COLS;
+		const cy = ((row + 0.15 + rand() * 0.7) * H) / ROWS;
+		const spread = 110 + rand() * 40; // wider than a grid cell, so clusters overlap
+		const dots: Dot[] = [];
+		for (let n = 0; n < DOTS_PER_CLUSTER; n++) {
+			const a = rand() * Math.PI * 2;
+			const t = Math.pow(rand(), 0.8); // 0 = centre, 1 = edge
+			const r = Math.max(1.2, (1 - t) * MAX_RADIUS * (0.5 + rand()));
+			dots.push(dot(cx + Math.cos(a) * t * spread, cy + Math.sin(a) * t * spread, r));
+		}
+		rand(); // keeps the approved layout: this slot used to hold the cluster's delay
+		groups.push({ style: motion(), dots });
+	}
+}
+
+const specks: Dot[] = [];
+for (let n = 0; n < SPECKS; n++) specks.push(dot(rand() * W, rand() * H, 1.2 + rand() * 2.3));
+groups.push({ style: motion(), dots: specks });
+
+// One <path> per group (each dot drawn as two arcs) instead of one <circle> per
+// dot: same picture, ~13 DOM nodes instead of ~900.
+const toPath = (dots: Dot[]) =>
+	dots.map(({ x, y, r }) => `M${+(x - r).toFixed(1)} ${y}a${r} ${r} 0 1 0 ${+(2 * r).toFixed(1)} 0a${r} ${r} 0 1 0 ${-(2 * r).toFixed(1)} 0`).join('');
+---
+
+<div class:list={['krackle', `side-${side}`]} aria-hidden="true">
+	<svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice">
+		{
+			groups.map((g) => (
+				<path style={g.style} d={toPath(g.dots)} fill="currentColor" />
+			))
+		}
+	</svg>
+</div>
+
+<style>
+	/* Fills its positioned parent's right side (a bottom band on phones);
+	   the parent should set isolation: isolate. */
+	.krackle {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		right: 0;
+		width: min(60%, 40rem);
+		height: 100%;
+		color: var(--ink);
+		opacity: 0.16;
+		mask-image: radial-gradient(closest-side at var(--mx, 55%) 50%, #000 50%, transparent 100%);
+		pointer-events: none;
+	}
+	@media (min-width: 48.01rem) {
+		/* Fixed-size SVG, centred and cropped by the box, so dots render at the
+		   same scale in every instance regardless of the parent's size. */
+		.krackle {
+			overflow: hidden;
+		}
+		.krackle svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 40rem;
+			height: auto;
+			aspect-ratio: 3 / 4;
+			translate: -50% -50%;
+		}
+		/* Left variant: a narrower field under a section's label column. */
+		.side-left {
+			right: auto;
+			left: 0;
+			width: min(35%, 24rem);
+			--mx: 45%;
+		}
+	}
+	/* Phones: a band along the bottom of the parent (behind the CTA area), not behind the main text. */
+	@media (max-width: 48rem) {
+		.krackle {
+			top: auto;
+			bottom: var(--krackle-lift, 0); /* parents can raise the band */
+			width: 100%;
+			height: 30rem;
+			opacity: 0.14;
+			mask-image: radial-gradient(ellipse 80% 48% at 50% 55%, #000 0%, rgb(0 0 0 / 0.5) 45%, transparent 100%);
+		}
+	}
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+	path {
+		transform-box: fill-box;
+		transform-origin: center;
+		animation: float 10s ease-in-out infinite alternate;
+	}
+	@keyframes float {
+		to {
+			transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1.04);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		path {
+			animation: none;
+		}
+	}
+</style>

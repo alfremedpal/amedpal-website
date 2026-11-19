@@ -1,0 +1,22 @@
+---
+import Section from '../Section.astro';
+import CallToAction from '../CallToAction.astro';
+import Krackle from '../Krackle.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Section id="contact" label={t.contact.label}>
+	<Krackle side="left" seed={23} />
+	<h2 class="title">{t.contact.title}</h2>
+	<p class="body">{t.contact.body}</p>
+	<CallToAction />
+</Section>
+
+<style>
+	/* Class selector so it outranks Section's generic h2 size. */
+	.title.title {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+	}
+</style>

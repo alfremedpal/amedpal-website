@@ -1,0 +1,45 @@
+---
+// AWS certification line. With site.certification set, shows the official badge
+// (unaltered, per AWS logo guidelines) linked to the public Credly verification.
+import { site } from '../data/site';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+const { credlyUrl, badge } = site.certification;
+---
+
+{
+	credlyUrl && badge ? (
+		<a class="cert label" href={credlyUrl} target="_blank" rel="noreferrer" title={t.hero.certVerify}>
+			<img src={badge} alt="" width="40" height="40" />
+			<span>{t.hero.cert}</span>
+			<span class="sr-only">({t.hero.certVerify})</span>
+		</a>
+	) : (
+		<p class="cert label">
+			<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+				<path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+			<span>{t.hero.cert}</span>
+		</p>
+	)
+}
+
+<style>
+	.cert {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: var(--ink);
+	}
+	a.cert span {
+		transition: color 0.2s ease;
+	}
+	a.cert:hover span {
+		color: var(--accent);
+	}
+	svg {
+		color: var(--accent);
+	}
+</style>

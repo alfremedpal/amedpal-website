@@ -1,0 +1,87 @@
+---
+// Google advises against redirecting by browser language, so instead visitors
+// whose browser prefers Spanish get a dismissible prompt (written in Spanish)
+// on English pages. Hidden until the script decides to show it; floats, so it
+// causes no layout shift.
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getDict } from '../i18n/ui';
+
+const t = getDict('es').suggest;
+const path = Astro.url.pathname.slice(1);
+---
+
+<aside class="suggest" lang="es-MX" aria-label={t.action} hidden>
+	<p>{t.text}</p>
+	<a class="link" href={getRelativeLocaleUrl('es', path)}>{t.action}</a>
+	<button type="button" aria-label={t.dismiss} title={t.dismiss}>×</button>
+</aside>
+
+<script>
+	const box = document.querySelector<HTMLElement>('.suggest');
+	if (box) {
+		try {
+			const pref = (navigator.languages?.[0] ?? navigator.language ?? '').toLowerCase();
+			// 'lang' is set by an explicit choice: the switcher, this link, or dismissing.
+			if (pref.startsWith('es') && !localStorage.getItem('lang')) box.hidden = false;
+
+			const remember = (lang: string) => localStorage.setItem('lang', lang);
+			box.querySelector('a')?.addEventListener('click', () => remember('es'));
+			box.querySelector('button')?.addEventListener('click', () => {
+				remember('en');
+				box.hidden = true;
+			});
+		} catch {}
+	}
+</script>
+
+<style>
+	.suggest {
+		position: fixed;
+		z-index: 10;
+		left: 50%;
+		bottom: 1rem;
+		transform: translateX(-50%);
+		width: max-content;
+		max-width: calc(100% - 2rem);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem 1rem;
+		padding: 0.75rem 0.75rem 0.75rem 1.1rem;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		animation: rise 0.4s ease both;
+	}
+	.suggest[hidden] {
+		display: none;
+	}
+	a {
+		font-weight: 500;
+		color: var(--accent);
+	}
+	button {
+		padding: 0 0.4rem;
+		background: none;
+		border: 0;
+		color: var(--muted);
+		font-size: 1.25rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+	button:hover {
+		color: var(--ink);
+	}
+	@keyframes rise {
+		from {
+			opacity: 0;
+			transform: translate(-50%, 8px);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.suggest {
+			animation: none;
+		}
+	}
+</style>

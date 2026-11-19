@@ -1,0 +1,67 @@
+---
+import Section from '../Section.astro';
+import TechStack from '../TechStack.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Section id="services" label={t.services.label}>
+	<ul class="rows" role="list">
+		{
+			t.services.items.map((s) => (
+				<li>
+					<span class="bullet" aria-hidden="true" />
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))
+		}
+	</ul>
+	<TechStack />
+</Section>
+
+<style>
+	.rows {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: grid;
+		grid-template-columns: 1.25rem 1fr;
+		gap: 0.25rem 1rem;
+		padding: 1.5rem 0.75rem;
+		margin: 0 -0.75rem;
+		border-bottom: 1px solid var(--line);
+		transition: background-color 0.2s ease;
+	}
+	li:first-child {
+		padding-top: 0.25rem;
+	}
+	li:last-child {
+		border-bottom: 0;
+	}
+	li:hover {
+		background: var(--surface);
+	}
+	li:hover .bullet {
+		background: var(--accent);
+	}
+	.bullet {
+		width: 0.5rem;
+		height: 0.5rem;
+		margin-top: 0.85rem;
+		border-radius: 50%;
+		background: var(--muted);
+		transition: background-color 0.2s ease;
+	}
+	h3 {
+		font-size: 1.75rem;
+	}
+	p {
+		grid-column: 2;
+		color: var(--muted);
+		max-width: 40rem;
+	}
+</style>

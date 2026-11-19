@@ -6,7 +6,7 @@ import { useTranslations } from '../../i18n/ui';
 const t = useTranslations(Astro.currentLocale);
 ---
 
-<Section id="services" label={t.services.label}>
+<Section id="services" labelAs="h2" label={t.services.label}>
 	<ul class="rows" role="list">
 		{
 			t.services.items.map((s) => (

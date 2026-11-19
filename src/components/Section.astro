@@ -1,15 +1,17 @@
 ---
 // A page section: a small mono label in the left column, content on the right.
+// Use labelAs="h2" when the section has no h2 of its own, so it still shows in the page outline.
 interface Props {
 	label: string;
 	id?: string;
+	labelAs?: 'p' | 'h2';
 }
 
-const { label, id } = Astro.props;
+const { label, id, labelAs: Label = 'p' } = Astro.props;
 ---
 
 <section id={id} class="wrap section" data-reveal>
-	<p class="label">{label}</p>
+	<Label class="label">{label}</Label>
 	<div><slot /></div>
 </section>
 
@@ -30,7 +32,13 @@ const { label, id } = Astro.props;
 			gap: 2rem;
 		}
 	}
-	.section :global(h2) {
+	/* An h2 label keeps the small label look, not the heading styles. */
+	h2.label {
+		font-weight: 400;
+		line-height: inherit;
+		font-variation-settings: normal;
+	}
+	.section :global(h2:not(.label)) {
 		font-size: clamp(2rem, 4.5vw, 3rem);
 		max-width: 22ch;
 	}

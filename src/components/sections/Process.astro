@@ -5,7 +5,7 @@ import { useTranslations } from '../../i18n/ui';
 const t = useTranslations(Astro.currentLocale);
 ---
 
-<Section id="process" label={t.process.label}>
+<Section id="process" labelAs="h2" label={t.process.label}>
 	<ol class="steps" role="list">
 		{
 			t.process.items.map((s, i) => (

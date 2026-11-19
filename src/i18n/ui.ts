@@ -2,8 +2,8 @@
 // must match its shape (enforced by the `Dict` type).
 
 export const languages = {
-	en: { label: 'EN', name: 'English', htmlLang: 'en' },
-	es: { label: 'ES', name: 'Español', htmlLang: 'es-MX' },
+	en: { label: 'EN', name: 'English', htmlLang: 'en', ogLocale: 'en_US' },
+	es: { label: 'ES', name: 'Español', htmlLang: 'es-MX', ogLocale: 'es_MX' },
 } as const;
 
 export type Lang = keyof typeof languages;

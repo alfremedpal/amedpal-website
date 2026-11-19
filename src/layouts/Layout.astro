@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import LanguageSuggestion from '../components/LanguageSuggestion.astro';
 import { languages, defaultLang, getLang, useTranslations } from '../i18n/ui';
+import { site } from '../data/site';
 
 const lang = getLang(Astro.currentLocale);
 const t = useTranslations(Astro.currentLocale);
@@ -13,6 +14,36 @@ const alternates = (Object.keys(languages) as (keyof typeof languages)[]).map((l
 	hreflang: languages[l].htmlLang,
 	href: getAbsoluteLocaleUrl(l, path),
 }));
+
+const url = getAbsoluteLocaleUrl(lang, path);
+const home = getAbsoluteLocaleUrl(defaultLang, '');
+const ogImage = new URL('/icon-512.png', home).href;
+
+// Structured data: who runs the site and what the business offers.
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Person',
+			'@id': `${home}#person`,
+			name: site.name,
+			url: home,
+			jobTitle: t.hero.eyebrow,
+			email: site.email,
+			sameAs: site.socials.map((s) => s.href),
+			knowsAbout: ['AWS', 'Cloud infrastructure', 'DevOps', 'Terraform', 'Docker', 'Cloud cost optimization'],
+		},
+		{
+			'@type': 'ProfessionalService',
+			'@id': `${home}#business`,
+			name: `${site.name} (${site.brand})`,
+			url,
+			description: t.meta.description,
+			email: site.email,
+			founder: { '@id': `${home}#person` },
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -36,9 +67,24 @@ const alternates = (Object.keys(languages) as (keyof typeof languages)[]).map((l
 		/>
 		<title>{t.meta.title}</title>
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="canonical" href={getAbsoluteLocaleUrl(lang, path)} />
+		<link rel="canonical" href={url} />
 		{alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 		<link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl(defaultLang, path)} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={site.brand} />
+		<meta property="og:title" content={t.meta.title} />
+		<meta property="og:description" content={t.meta.description} />
+		<meta property="og:url" content={url} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:locale" content={languages[lang].ogLocale} />
+		{
+			(Object.keys(languages) as (keyof typeof languages)[])
+				.filter((l) => l !== lang)
+				.map((l) => <meta property="og:locale:alternate" content={languages[l].ogLocale} />)
+		}
+		<meta name="twitter:card" content="summary" />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />
 
 		<script is:inline>
 			document.documentElement.classList.add('js');
